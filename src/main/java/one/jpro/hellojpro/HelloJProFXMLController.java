@@ -11,6 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.Box;
+import javafx.scene.shape.CullFace;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -25,6 +29,12 @@ public class HelloJProFXMLController implements Initializable {
 
     @FXML
     public Label platformLabel;
+
+    @FXML
+    public Box box;
+
+    @FXML
+    public Node boxGroup;
 
     @FXML
     protected StackPane root;
@@ -64,5 +74,23 @@ public class HelloJProFXMLController implements Initializable {
     protected void init(JProApplication jproApplication) {
         this.jproApplication = jproApplication;
         initLogoAnimation(this.logo);
+        initBox(this.box);
+        initBoxGroup(this.boxGroup);
+    }
+
+    private void initBoxGroup(Node boxGroup) {
+        boxGroup.setTranslateX(250);
+        boxGroup.setTranslateY(100);
+        boxGroup.setTranslateZ(400);
+        boxGroup.setVisible(true);
+    }
+
+    protected void initBox(Box box) {
+        box.setMaterial(new PhongMaterial(Color.BLUE));
+        box.setCullFace(CullFace.NONE);
+        box.setTranslateX(250);
+        box.setTranslateY(100);
+        box.setTranslateZ(400);
+        box.setVisible(true);
     }
 }

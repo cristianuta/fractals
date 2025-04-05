@@ -2,8 +2,11 @@ package one.jpro.hellojpro;
 
 import com.jpro.webapi.JProApplication;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,8 +28,19 @@ public class HelloJProFXML extends JProApplication {
             HelloJProFXMLController controller = loader.getController();
             controller.init(this);
 
+            // set camera
+            boolean fixedEyeAtCameraZero = false;
+            PerspectiveCamera camera = new PerspectiveCamera(fixedEyeAtCameraZero);
+            camera.setTranslateX(150);
+            camera.setTranslateY(-100);
+            camera.setTranslateZ(250);
+
+            root.setRotationAxis(Rotate.X_AXIS);
+            root.setRotate(30);
+
             // create JavaFX scene
             scene = new Scene(root);
+            scene.setCamera(camera);
         } catch (IOException e) {
             e.printStackTrace();
         }

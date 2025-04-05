@@ -10,4 +10,6 @@ module one.jpro.hellojpro {
 
     exports one.jpro.hellojpro;
     opens one.jpro.hellojpro to javafx.fxml;
+    exports com.fractals.sierpinski;
+    opens com.fractals.sierpinski to javafx.fxml;
 }
