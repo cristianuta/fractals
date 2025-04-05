@@ -1,4 +1,4 @@
-package one.jpro.hellojpro;
+package com.fractals.fxml;
 
 import com.jpro.webapi.JProApplication;
 import com.jpro.webapi.WebAPI;

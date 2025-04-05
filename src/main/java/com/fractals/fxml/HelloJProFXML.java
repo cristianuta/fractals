@@ -1,8 +1,7 @@
-package one.jpro.hellojpro;
+package com.fractals.fxml;
 
 import com.jpro.webapi.JProApplication;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
