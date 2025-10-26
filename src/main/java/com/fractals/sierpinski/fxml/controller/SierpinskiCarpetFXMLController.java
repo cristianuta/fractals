@@ -1,4 +1,4 @@
-package com.fractals.fxml;
+package com.fractals.sierpinski.fxml.controller;
 
 import com.jpro.webapi.JProApplication;
 import com.jpro.webapi.WebAPI;
@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
  *
  * @author Florian Kirmaier
  */
-public class HelloJProFXMLController implements Initializable {
+public class SierpinskiCarpetFXMLController implements Initializable {
 
     @FXML
     public Label platformLabel;
@@ -71,7 +71,7 @@ public class HelloJProFXMLController implements Initializable {
         }
     }
 
-    protected void init(JProApplication jproApplication) {
+    public void init(JProApplication jproApplication) {
         this.jproApplication = jproApplication;
         initLogoAnimation(this.logo);
         initBox(this.box);

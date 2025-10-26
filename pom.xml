@@ -32,8 +32,8 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.fractals.fxml.HelloJProFXML</mainClass>
-                    <!--<mainClass>com.fractals.sierpinski.SierpinskiSponge</mainClass>-->
+                    <!--<mainClass>com.fractals.fxml.HelloJProFXML</mainClass>-->
+                    <mainClass>com.fractals.sierpinski.fxml.SierpinskiCarpetFXML</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -41,8 +41,8 @@
                 <artifactId>jpro-maven-plugin</artifactId>
                 <version>${jpro.version}</version>
                 <configuration>
-                    <mainClassName>com.fractals.fxml.HelloJProFXML</mainClassName>
-                    <!--<mainClassName>com.fractals.sierpinski.SierpinskiSponge</mainClassName>-->
+                    <!--<mainClassName>com.fractals.fxml.HelloJProFXML</mainClassName>-->
+                    <mainClassName>com.fractals.sierpinski.fxml.SierpinskiCarpetFXML</mainClassName>
                 </configuration>
             </plugin>
         </plugins>

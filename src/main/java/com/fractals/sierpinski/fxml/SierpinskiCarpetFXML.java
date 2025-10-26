@@ -1,5 +1,6 @@
-package com.fractals.fxml;
+package com.fractals.sierpinski.fxml;
 
+import com.fractals.sierpinski.fxml.controller.SierpinskiCarpetFXMLController;
 import com.jpro.webapi.JProApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,16 +16,16 @@ import java.io.IOException;
  *
  * @author Florian Kirmaier
  */
-public class HelloJProFXML extends JProApplication {
+public class SierpinskiCarpetFXML extends JProApplication {
 
     @Override
     public void start(Stage stage) {
         // load user interface as FXML file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/one/jpro/hellojpro/fxml/HelloJPro.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/one/jpro/hellojpro/fxml/SierpinskiCarpet.fxml"));
         Scene scene = null;
         try {
             Parent root = loader.load();
-            HelloJProFXMLController controller = loader.getController();
+            SierpinskiCarpetFXMLController controller = loader.getController();
             controller.init(this);
 
             // set camera

@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.Pane?>
 <StackPane
         xmlns:fx="http://javafx.com/fxml"
-        stylesheets="@../css/HelloJPro.css"
+        stylesheets="@../css/SierpinskiCarpet.css"
         prefWidth="800" prefHeight="600"
         fx:id="root"
-        fx:controller="com.fractals.fxml.HelloJProFXMLController">
+        fx:controller="com.fractals.sierpinski.fxml.controller.SierpinskiCarpetFXMLController">
     <Label text="Hello" styleClass="hello-label"></Label>
     <ImageView fx:id="logo" fitWidth="300" preserveRatio="true">
         <Image url="@../img/JPRO_logo_rgb.png"></Image>

@@ -1,11 +1,14 @@
 package com.fractals.sierpinski;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -16,6 +19,15 @@ import javafx.stage.Stage;
 public class SierpinskiCarpet extends Application {
 
     @Override
+    public void start(Stage stage) {
+        Label label = new Label("Hello JPro!");
+        label.setFont(new Font(50));
+        label.setAlignment(Pos.CENTER);
+        stage.setScene(new Scene(label));
+        stage.show();
+    }
+
+    /*@Override
     public void start(Stage primaryStage) {
 
         Circle circle = new Circle();
@@ -43,7 +55,7 @@ public class SierpinskiCarpet extends Application {
         primaryStage.setTitle("2D Example");
 
         primaryStage.show();
-    }
+    }*/
 
     /**
      * Application entry point.
