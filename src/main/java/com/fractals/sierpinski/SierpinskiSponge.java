@@ -14,9 +14,7 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 /**
- * Hello JPro application.
- *
- * @author Florian Kirmaier
+ * Author: Cristian Uță
  */
 public class SierpinskiSponge extends Application {
 

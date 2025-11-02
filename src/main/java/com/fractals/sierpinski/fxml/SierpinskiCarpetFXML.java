@@ -12,9 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Hello JPro application using FXML.
- *
- * @author Florian Kirmaier
+ * Author: Cristian Uță
  */
 public class SierpinskiCarpetFXML extends JProApplication {
 

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Box?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.Pane?>
 <StackPane
@@ -14,15 +10,8 @@
         prefWidth="800" prefHeight="600"
         fx:id="root"
         fx:controller="com.fractals.sierpinski.fxml.controller.SierpinskiCarpetFXMLController">
-    <Label text="Hello" styleClass="hello-label"></Label>
-    <ImageView fx:id="logo" fitWidth="300" preserveRatio="true">
-        <Image url="@../img/JPRO_logo_rgb.png"></Image>
-    </ImageView>
     <Pane>
-        <Rectangle fx:id="dreptunghi" x="200" y="200" width="400" height="300" stroke="black" fill="blue"/>
+        <Rectangle fx:id="carpet" StackPane.alignment="CENTER"/>
     </Pane>
-    <Group fx:id="boxGroup" StackPane.alignment="CENTER">
-        <Box fx:id="box"/>
-    </Group>
     <Label fx:id="platformLabel" text="Platform: " styleClass="platform-label" StackPane.alignment="BOTTOM_CENTER"></Label>
 </StackPane>
