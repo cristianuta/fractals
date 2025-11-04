@@ -3,15 +3,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.layout.Pane?>
 <StackPane
         xmlns:fx="http://javafx.com/fxml"
         stylesheets="@../css/SierpinskiCarpet.css"
-        prefWidth="800" prefHeight="600"
         fx:id="root"
         fx:controller="com.fractals.sierpinski.fxml.controller.SierpinskiCarpetFXMLController">
-    <Pane>
-        <Rectangle fx:id="carpet" StackPane.alignment="CENTER"/>
-    </Pane>
-    <Label fx:id="platformLabel" text="Platform: " styleClass="platform-label" StackPane.alignment="BOTTOM_CENTER"></Label>
+
+    <Rectangle fx:id="carpet" StackPane.alignment="CENTER"/>
+    <Label fx:id="platform" text="Platform: " styleClass="platform-label" StackPane.alignment="BOTTOM_CENTER"/>
+
 </StackPane>

@@ -19,7 +19,7 @@ public class SierpinskiCarpetFXML extends JProApplication {
     @Override
     public void start(Stage stage) {
         // load user interface as FXML file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/one/jpro/hellojpro/fxml/SierpinskiCarpet.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fractals/fxml/SierpinskiCarpet.fxml"));
         Scene scene = null;
         try {
             Parent root = loader.load();
@@ -43,7 +43,7 @@ public class SierpinskiCarpetFXML extends JProApplication {
             e.printStackTrace();
         }
 
-        stage.setTitle("Hello JPro!");
+        stage.setTitle("Fractals");
         stage.setScene(scene);
 
         // open JavaFX window
