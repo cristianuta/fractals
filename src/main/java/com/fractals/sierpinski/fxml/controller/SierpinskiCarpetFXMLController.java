@@ -43,7 +43,7 @@ public class SierpinskiCarpetFXMLController implements Initializable {
         drawSquare(iterations, 200, root.getWidth()/2, root.getHeight()/2);
     }
 
-    private void drawSquare(int iteration, int length, double X, double Y) {
+    private void drawSquare(int iteration, double length, double X, double Y) {
         if (iteration == 0) {
             Rectangle carpet = new Rectangle();
             carpet.setTranslateX(X);
@@ -58,27 +58,16 @@ public class SierpinskiCarpetFXMLController implements Initializable {
         }
         iteration--;
 
-        drawSquare(iteration, length/3, X- (double) length, Y- (double) length);
-        drawSquare(iteration, length/3, X- (double) length, Y);
-        drawSquare(iteration, length/3, X- (double) length, Y+ (double) length);
+        drawSquare(iteration, length/3, X- length, Y- length);
+        drawSquare(iteration, length/3, X- length, Y);
+        drawSquare(iteration, length/3, X- length, Y+ length);
 
-        drawSquare(iteration, length/3, X, Y- (double) length);
-        drawSquare(iteration, length/3, X, Y+ (double) length);
+        drawSquare(iteration, length/3, X, Y- length);
+        drawSquare(iteration, length/3, X, Y+ length);
 
-        drawSquare(iteration, length/3, X+ (double) length, Y- (double) length);
-        drawSquare(iteration, length/3,X+ (double) length, Y);
-        drawSquare(iteration, length/3, X+ (double) length, Y+ (double) length);
+        drawSquare(iteration, length/3, X+ length, Y- length);
+        drawSquare(iteration, length/3,X+ length, Y);
+        drawSquare(iteration, length/3, X+ length, Y+ length);
     }
 }
-/*
 
-drawSquare(iteration, length/3, X- (double) length /3, Y- (double) length /3);
-drawSquare(iteration, length/3, X- (double) length /3, Y);
-drawSquare(iteration, length/3, X- (double) length /3, Y+ (double) length /3);
-
-drawSquare(iteration, length/3, X- (double) length /3, Y);
-drawSquare(iteration, length/3, X+ (double) length /3, Y);
-
-drawSquare(iteration, length/3, X+ (double) length /3, Y- (double) length /3);
-drawSquare(iteration, length/3,X+ (double) length /3, Y);
-drawSquare(iteration, length/3, X+ (double) length /3, Y+ (double) length /3);*/
