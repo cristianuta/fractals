@@ -1,4 +1,24 @@
 package com.fractals.sierpinski;
 
-public class SierpinskiTriangle {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+/**
+ * Author: Cristian Uță
+ */
+public class SierpinskiTriangle extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        stage.show();
+    }
+
+    /**
+     * Application entry point.
+     *
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
 }

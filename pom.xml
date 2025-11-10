@@ -33,7 +33,8 @@
                 <version>0.0.8</version>
                 <configuration>
                     <!--<mainClass>com.fractals.fxml.HelloJProFXML</mainClass>-->
-                    <mainClass>com.fractals.sierpinski.fxml.SierpinskiCarpetFXML</mainClass>
+                    <!--<mainClass>com.fractals.sierpinski.fxml.SierpinskiCarpetFXML</mainClass>-->
+                    <mainClass>com.fractals.sierpinski.fxml.SierpinskiTriangleFXML</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -42,7 +43,8 @@
                 <version>${jpro.version}</version>
                 <configuration>
                     <!--<mainClassName>com.fractals.fxml.HelloJProFXML</mainClassName>-->
-                    <mainClassName>com.fractals.sierpinski.fxml.SierpinskiCarpetFXML</mainClassName>
+                    <!--<mainClassName>com.fractals.sierpinski.fxml.SierpinskiCarpetFXML</mainClassName>-->
+                    <mainClassName>com.fractals.sierpinski.fxml.SierpinskiTriangleFXML</mainClassName>
                 </configuration>
             </plugin>
         </plugins>
