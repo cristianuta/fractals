@@ -1,6 +1,7 @@
 package com.fractals.sierpinski.controller;
 
 import com.jpro.webapi.JProApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,8 +9,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -17,7 +21,6 @@ import java.util.ResourceBundle;
  */
 public class SierpinskiController implements Initializable {
 
-    private static final boolean CARPET_ON = true;
     public static final String SHOW_CARPET = "Show Carpet";
     public static final String SHOW_TRIANGLE = "Show Triangle";
 
@@ -34,6 +37,9 @@ public class SierpinskiController implements Initializable {
     protected Polygon triangle;
 
     protected JProApplication app;
+    private List<Shape> fullCarpet = new ArrayList<>();
+    private List<Shape> fullTriangle = new ArrayList<>();
+    private boolean carpetVisible = true;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,23 +48,26 @@ public class SierpinskiController implements Initializable {
 
     public void init(JProApplication app) {
         this.app = app;
-        this.button.setText(CARPET_ON ? SHOW_TRIANGLE : SHOW_CARPET);
-        this.button.setOnAction(e -> {
-            if (CARPET_ON) {
-                button.setText(SHOW_TRIANGLE);
-                triangle.setVisible(false);
-                drawCarpet(this.carpet);
-            } else {
-                button.setText(SHOW_CARPET);
-                carpet.setVisible(false);
-                drawTriangle(this.triangle);
-            }
-        });
-        if (CARPET_ON) {
-            drawCarpet(this.carpet);
-        } else {
-            drawTriangle(this.triangle);
+        drawCarpet(this.carpet);
+        drawTriangle(this.triangle);
+        
+        // Initially show carpet
+        root.getChildren().addAll(fullCarpet);
+        for (Shape shape : fullCarpet) {
+            shape.setVisible(true);
+            shape.setMouseTransparent(true); // Allow mouse events to pass through
         }
+        
+        // Make triangle shapes mouse transparent as well
+        for (Shape shape : fullTriangle) {
+            shape.setMouseTransparent(true);
+        }
+        
+        // Ensure button is on top
+        button.toFront();
+    
+        this.button.setText(SHOW_TRIANGLE);
+
         this.button.setVisible(true);
     }
 
@@ -76,8 +85,8 @@ public class SierpinskiController implements Initializable {
             carpet.setHeight(length * 3);
             carpet.setStroke(Color.BLACK);
             carpet.setFill(Color.ORANGE);
-            root.getChildren().add(carpet);
-            carpet.setVisible(true);
+            carpet.setMouseTransparent(true); // Allow mouse events to pass through
+            fullCarpet.add(carpet);
             return;
         }
         iteration--;
@@ -96,27 +105,51 @@ public class SierpinskiController implements Initializable {
 
     public void drawTriangle(Polygon triangle) {
         int iterations = 4;
-        drawTriangle(iterations, Double.valueOf(250.0), Double.valueOf(root.getWidth() / 2), Double.valueOf(root.getHeight() / 2));
+        drawTriangle(iterations, 250.0, root.getWidth() / 2, root.getHeight() / 2);
     }
 
-    private void drawTriangle(int iteration, Double length, Double X, Double Y) {
+    private void drawTriangle(int iteration, double length, double X, double Y) {
         if (iteration == 0) {
             Polygon triangle = new Polygon();
-            Double[] points = {(Double) (X - length), (Double) (Y + length), (Double) (X + length), (Double) (Y + length), X, (Double) (Y - length)};
-            triangle.getPoints().addAll(points);
+            triangle.getPoints().addAll(
+                X - length, Y + length,
+                X + length, Y + length,
+                X, Y - length
+            );
             triangle.setTranslateX(X);
             triangle.setTranslateY(Y);
             triangle.setStroke(Color.BLACK);
             triangle.setFill(Color.ORANGE);
-            root.getChildren().add(triangle);
-            triangle.setVisible(true);
+            triangle.setMouseTransparent(true); // Allow mouse events to pass through
+            fullTriangle.add(triangle);
             return;
         }
         iteration--;
 
-        drawTriangle(iteration, Double.valueOf(length / 2), Double.valueOf(X - length / 2), Double.valueOf(Y + length / 2));
-        drawTriangle(iteration, Double.valueOf(length / 2), Double.valueOf(X + length / 2), Double.valueOf(Y + length / 2));
-        drawTriangle(iteration, Double.valueOf(length / 2), Double.valueOf(X), Double.valueOf(Y - length / 2));
+        drawTriangle(iteration, length / 2, X - length / 2, Y + length / 2);
+        drawTriangle(iteration, length / 2, X + length / 2, Y + length / 2);
+        drawTriangle(iteration, length / 2, X, Y - length / 2);
+    }
+
+    public void buttonClicked(ActionEvent actionEvent) {
+        if (carpetVisible) {
+            button.setText(SHOW_CARPET);
+            root.getChildren().removeAll(fullCarpet);
+            root.getChildren().addAll(fullTriangle);
+            for (Shape shape : fullTriangle) {
+                shape.setVisible(true);
+            }
+            button.toFront(); // Keep button on top
+            carpetVisible = false;
+        } else {
+            button.setText(SHOW_TRIANGLE);
+            root.getChildren().removeAll(fullTriangle);
+            root.getChildren().addAll(fullCarpet);
+            for (Shape shape : fullCarpet) {
+                shape.setVisible(true);
+            }
+            button.toFront(); // Keep button on top
+            carpetVisible = true;
+        }
     }
 }
-

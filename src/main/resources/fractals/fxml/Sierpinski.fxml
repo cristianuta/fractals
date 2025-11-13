@@ -12,6 +12,6 @@
 
     <Rectangle fx:id="carpet" StackPane.alignment="CENTER"/>
     <Polygon fx:id="triangle" StackPane.alignment="CENTER"/>
-    <Button fx:id="button" StackPane.alignment="BOTTOM_CENTER"/>
+    <Button fx:id="button" StackPane.alignment="BOTTOM_CENTER" onAction="#buttonClicked"/>
 
 </StackPane>
