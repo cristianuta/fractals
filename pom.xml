@@ -47,8 +47,10 @@
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.7</version>
-                <configuration>
+                <configuration><jdkVersion>21</jdkVersion>
                     <appName>fractal</appName>
+                    <jdkVersion>21</jdkVersion>
+                    <logProgress>true</logProgress>
                     <processTypes>
                         <web>mvn clean install jpro:run</web>
                     </processTypes>
