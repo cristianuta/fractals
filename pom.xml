@@ -43,6 +43,15 @@
                     <mainClassName>com.fractals.sierpinski.SierpinskiMain</mainClassName>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.7</version>
+                <configuration>
+                    <jpro>run</jpro>
+                    <appName>fractal</appName>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
