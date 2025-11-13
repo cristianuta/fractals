@@ -8,9 +8,9 @@
 # heroku config:set MAVEN_JAVA_OPTS="-Xss2g"
 
 # copy maven files
-for DIR in ".m2" ".maven" ; do
-  cp -r $CACHE_DIR/$DIR $BUILD_DIR/$DIR
-done
+# for DIR in ".m2" ".maven" ; do
+#  cp -r $CACHE_DIR/$DIR $BUILD_DIR/$DIR
+# done
 
 # run
 web: java -jar target/fractals-1.0-SNAPSHOT.jar -Dserver.port=9090 -Xmx512m
