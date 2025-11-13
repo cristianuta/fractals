@@ -15,6 +15,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <javafx.version>23.0.2</javafx.version>
+        <PORT>9090</PORT>
     </properties>
 
     <name>Hello JPro!</name>
@@ -47,12 +48,12 @@
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.7</version>
-                <configuration><jdkVersion>21</jdkVersion>
+                <configuration>
                     <appName>fractal</appName>
                     <jdkVersion>21</jdkVersion>
                     <logProgress>true</logProgress>
                     <processTypes>
-                        <web>mvn clean install jpro:run</web>
+                        <web>java -Dserver.port=$PORT -jar target/fractals-1.0-SNAPSHOT.jar -Xmx512m</web>
                     </processTypes>
                 </configuration>
             </plugin>
