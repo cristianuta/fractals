@@ -131,6 +131,7 @@ public class SierpinskiController implements Initializable {
         drawTriangle(iteration, length / 2, X, Y - length / 2);
     }
 
+    @FXML
     public void buttonClicked(ActionEvent actionEvent) {
         if (carpetVisible) {
             button.setText(SHOW_CARPET);
