@@ -52,9 +52,9 @@
                     <appName>fractal</appName>
                     <jdkVersion>21</jdkVersion>
                     <logProgress>true</logProgress>
-                    <processTypes>
+                    <!--<processTypes>
                         <web>java -Dserver.port=$PORT -jar target/fractals-1.0-SNAPSHOT.jar -Xmx512m</web>
-                    </processTypes>
+                    </processTypes>-->
                 </configuration>
             </plugin>
         </plugins>
