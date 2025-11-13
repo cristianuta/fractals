@@ -8,6 +8,6 @@
         fx:id="root"
         fx:controller="com.fractals.sierpinski.controller.SierpinskiController">
 
-    <Button fx:id="button" StackPane.alignment="BOTTOM_CENTER" onAction="#buttonClicked"/>
+    <Button fx:id="button" StackPane.alignment="TOP_CENTER" onAction="#buttonClicked"/>
 
 </StackPane>

@@ -81,7 +81,7 @@ public class SierpinskiController implements Initializable {
 
     public void drawCarpet(Rectangle carpet) {
         int iterations = 3;
-        drawSquare(iterations, 200, root.getWidth() / 2, root.getHeight() / 2);
+        drawSquare(iterations, 200, 0, 0);
     }
 
     private void drawSquare(int iteration, double length, double X, double Y) {
@@ -113,7 +113,7 @@ public class SierpinskiController implements Initializable {
 
     public void drawTriangle(Polygon triangle) {
         int iterations = 4;
-        drawTriangle(iterations, 250.0, root.getWidth() / 2, root.getHeight() / 2);
+        drawTriangle(iterations, 250.0, 0, 0);
     }
 
     private void drawTriangle(int iteration, double length, double X, double Y) {
