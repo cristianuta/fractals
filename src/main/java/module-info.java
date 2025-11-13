@@ -11,8 +11,6 @@ module com.fractals.fxml {
 
     exports com.fractals.sierpinski;
     opens com.fractals.sierpinski to javafx.fxml;
-    exports com.fractals.sierpinski.fxml;
-    opens com.fractals.sierpinski.fxml to javafx.fxml;
-    exports com.fractals.sierpinski.fxml.controller;
-    opens com.fractals.sierpinski.fxml.controller to javafx.fxml;
+    exports com.fractals.sierpinski.controller;
+    opens com.fractals.sierpinski.controller to javafx.fxml;
 }
