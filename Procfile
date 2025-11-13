@@ -1,11 +1,11 @@
 
 # package
-web: mvn jpro:release
+# web: mvn jpro:release
 
 # config
-heroku config:set MAVEN_CUSTOM_GOALS="clean package jpro:release"
-heroku config:set MAVEN_CUSTOM_OPTS="--update-snapshots -DskipTests=true"
-heroku config:set MAVEN_JAVA_OPTS="-Xss2g"
+# heroku config:set MAVEN_CUSTOM_GOALS="clean package jpro:release"
+# heroku config:set MAVEN_CUSTOM_OPTS="--update-snapshots -DskipTests=true"
+# heroku config:set MAVEN_JAVA_OPTS="-Xss2g"
 
 # copy maven files
 for DIR in ".m2" ".maven" ; do
