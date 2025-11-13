@@ -1,1 +1,1 @@
-mvn clean install jpro:run
+mvn clean install jpro:run -Dserver.port=9090 -Xmx512m
