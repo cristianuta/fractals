@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.control.Button?>
 <StackPane
         xmlns:fx="http://javafx.com/fxml"
@@ -10,8 +8,6 @@
         fx:id="root"
         fx:controller="com.fractals.sierpinski.controller.SierpinskiController">
 
-    <Rectangle fx:id="carpet" StackPane.alignment="CENTER"/>
-    <Polygon fx:id="triangle" StackPane.alignment="CENTER"/>
     <Button fx:id="button" StackPane.alignment="BOTTOM_CENTER" onAction="#buttonClicked"/>
 
 </StackPane>

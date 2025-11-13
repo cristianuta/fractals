@@ -24,21 +24,13 @@ public class Sierpinski extends JProApplication {
         try {
             Parent root = loader.load();
             SierpinskiController controller = loader.getController();
+            
+            // Create scene with explicit dimensions
+            scene = new Scene(root, 800, 600);
+            
+            // Initialize controller after scene is created
             controller.init(this);
-
-            // set camera
-            boolean fixedEyeAtCameraZero = false;
-            PerspectiveCamera camera = new PerspectiveCamera(fixedEyeAtCameraZero);
-            camera.setTranslateX(150);
-            camera.setTranslateY(-100);
-            camera.setTranslateZ(250);
-
-            root.setRotationAxis(Rotate.X_AXIS);
-            root.setRotate(30);
-
-            // create JavaFX scene
-            scene = new Scene(root);
-            scene.setCamera(camera);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@ import com.jpro.webapi.JProApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -48,27 +49,34 @@ public class SierpinskiController implements Initializable {
 
     public void init(JProApplication app) {
         this.app = app;
+
+        // Remove the FXML-defined shapes since we're creating new ones dynamically
+        if (carpet != null) root.getChildren().remove(carpet);
+        if (triangle != null) root.getChildren().remove(triangle);
+
         drawCarpet(this.carpet);
         drawTriangle(this.triangle);
-        
-        // Initially show carpet
-        root.getChildren().addAll(fullCarpet);
+
+        if (carpetVisible) {
+            root.getChildren().addAll(fullCarpet);
+        } else {
+            root.getChildren().addAll(fullTriangle);
+        }
         for (Shape shape : fullCarpet) {
-            shape.setVisible(true);
             shape.setMouseTransparent(true); // Allow mouse events to pass through
         }
-        
+
         // Make triangle shapes mouse transparent as well
         for (Shape shape : fullTriangle) {
             shape.setMouseTransparent(true);
         }
-        
-        // Ensure button is on top
-        button.toFront();
-    
-        this.button.setText(SHOW_TRIANGLE);
 
-        this.button.setVisible(true);
+        // Ensure button is on top and has proper styling
+        button.toFront();
+        button.setPickOnBounds(true); // Ensure button responds to clicks
+        button.setMouseTransparent(false); // Button MUST receive mouse events
+        button.setText(carpetVisible ? SHOW_TRIANGLE : SHOW_CARPET);
+        button.setVisible(true);
     }
 
     public void drawCarpet(Rectangle carpet) {
@@ -140,7 +148,8 @@ public class SierpinskiController implements Initializable {
             for (Shape shape : fullTriangle) {
                 shape.setVisible(true);
             }
-            button.toFront(); // Keep button on top
+            root.getChildren().remove(button);
+            root.getChildren().add(button); // Re-add button to keep it on top
             carpetVisible = false;
         } else {
             button.setText(SHOW_TRIANGLE);
@@ -149,7 +158,8 @@ public class SierpinskiController implements Initializable {
             for (Shape shape : fullCarpet) {
                 shape.setVisible(true);
             }
-            button.toFront(); // Keep button on top
+            root.getChildren().remove(button);
+            root.getChildren().add(button); // Re-add button to keep it on top
             carpetVisible = true;
         }
     }
