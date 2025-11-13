@@ -1,6 +1,9 @@
 
+# package
+web: mvn jpro:release
+
 # run
-web: java -Dserver.port=9090 -jar target/fractals-1.0-SNAPSHOT.jar -Xmx512m
+web: java -jar target/fractals-1.0-SNAPSHOT.jar -Dserver.port=9090 -Xmx512m
 
 # scale up
 # heroku ps:scale web=1 -a fractal

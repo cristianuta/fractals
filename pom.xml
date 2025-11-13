@@ -37,10 +37,6 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <packageName>javafx.fxml</packageName>
-                            <packageName>jpro.webapi</packageName>
-                            <packageName>javafx.graphics</packageName>
-                            <packageName>javafx.controls</packageName>
                             <mainClass>com.fractals.sierpinski.SierpinskiMain</mainClass>
                         </manifest>
                     </archive>
