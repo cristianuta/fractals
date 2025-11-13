@@ -32,7 +32,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.fractals.sierpinski.Sierpinski</mainClass>
+                    <mainClass>com.fractals.sierpinski.SierpinskiMain</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -40,7 +40,7 @@
                 <artifactId>jpro-maven-plugin</artifactId>
                 <version>${jpro.version}</version>
                 <configuration>
-                    <mainClassName>com.fractals.sierpinski.Sierpinski</mainClassName>
+                    <mainClassName>com.fractals.sierpinski.SierpinskiMain</mainClassName>
                 </configuration>
             </plugin>
         </plugins>

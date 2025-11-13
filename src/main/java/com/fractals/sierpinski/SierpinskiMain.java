@@ -1,12 +1,10 @@
 package com.fractals.sierpinski;
 
-import com.fractals.sierpinski.controller.SierpinskiController;
+import com.fractals.sierpinski.controller.SierpinskiFXMLController;
 import com.jpro.webapi.JProApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,7 +12,7 @@ import java.io.IOException;
 /**
  * Author: Cristian Uță
  */
-public class Sierpinski extends JProApplication {
+public class SierpinskiMain extends JProApplication {
 
     @Override
     public void start(Stage stage) {
@@ -23,7 +21,7 @@ public class Sierpinski extends JProApplication {
         Scene scene = null;
         try {
             Parent root = loader.load();
-            SierpinskiController controller = loader.getController();
+            SierpinskiFXMLController controller = loader.getController();
             
             // Create scene with explicit dimensions
             scene = new Scene(root, 800, 600);

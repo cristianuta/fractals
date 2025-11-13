@@ -6,7 +6,7 @@
         xmlns:fx="http://javafx.com/fxml"
         stylesheets="@../css/Sierpinski.css"
         fx:id="root"
-        fx:controller="com.fractals.sierpinski.controller.SierpinskiController">
+        fx:controller="com.fractals.sierpinski.controller.SierpinskiFXMLController">
 
     <Button fx:id="button" StackPane.alignment="TOP_CENTER" onAction="#buttonClicked"/>
 

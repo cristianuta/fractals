@@ -4,7 +4,6 @@ import com.jpro.webapi.JProApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -20,7 +19,7 @@ import java.util.ResourceBundle;
 /**
  * Author: Cristian Uță
  */
-public class SierpinskiController implements Initializable {
+public class SierpinskiFXMLController implements Initializable {
 
     public static final String SHOW_CARPET = "Show Carpet";
     public static final String SHOW_TRIANGLE = "Show Triangle";
@@ -80,7 +79,7 @@ public class SierpinskiController implements Initializable {
     }
 
     public void drawCarpet(Rectangle carpet) {
-        int iterations = 3;
+        int iterations = 4;
         drawSquare(iterations, 200, 0, 0);
     }
 
@@ -112,7 +111,7 @@ public class SierpinskiController implements Initializable {
     }
 
     public void drawTriangle(Polygon triangle) {
-        int iterations = 4;
+        int iterations = 5;
         drawTriangle(iterations, 250.0, 0, 0);
     }
 
