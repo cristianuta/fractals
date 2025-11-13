@@ -1,1 +1,1 @@
-web: mvn clean install jpro:run -Dserver.port=9090
+web: java -Dserver.port=9090 -jar target/fractals-1.0-SNAPSHOT.jar -Xmx512m
