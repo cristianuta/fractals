@@ -13,10 +13,10 @@
 # done
 
 # run
-# web: java -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
+web: java -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
 
 # start
-web: ./app/target/fractals-jpro/bin/restart-background.sh
+# web: ./app/target/fractals-jpro/bin/restart-background.sh
 
 # scale up
 # heroku ps:scale web=1 -a fractal
