@@ -16,7 +16,7 @@
 # web: java -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
 
 # start
-web: ./${BUILD_DIRECTORY}/fractals-jpro/bin/start.sh
+web: ./target/fractals-jpro/bin/start.sh
 
 # scale up
 # heroku ps:scale web=1 -a fractal
