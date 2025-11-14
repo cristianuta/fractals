@@ -13,7 +13,7 @@
 # done
 
 # run
-web: java -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
+web: java -cp /app/target com.fractals.sierpinski.SierpinskiMain -Djpro.port=9090 -Xmx512m
 
 # start
 # web: ./app/target/fractals-jpro/bin/restart-background.sh

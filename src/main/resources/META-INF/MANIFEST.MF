@@ -1,2 +1,2 @@
 Main-Class: com.fractals.sierpinski.SierpinskiMain
-Class-Path: ./lib/*
+Class-Path: ./java/*
