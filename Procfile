@@ -12,11 +12,8 @@
 #  cp -r $CACHE_DIR/$DIR $BUILD_DIR/$DIR
 # done
 
-# permissions
-chmod +x /app/target/fractals-1.0-SNAPSHOT.jar
-
 # run
-web: java -cp /app/target/ -jar fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
+web: java -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
 
 # start
 # web: ./app/target/fractals-jpro/bin/restart-background.sh
