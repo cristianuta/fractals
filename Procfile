@@ -14,7 +14,7 @@
 
 # run
 # web: java -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
-web: java --module-path fractals-jpro/jprolibs --add-modules javafx.controls,javafx.fxml -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
+web: java --module-path target/fractals-jpro/jprolibs --add-modules javafx.controls,javafx.fxml -jar target/fractals-1.0-SNAPSHOT.jar -Djpro.port=9090 -Xmx512m
 
 # start
 # web: ./app/target/fractals-jpro/bin/restart-background.sh
