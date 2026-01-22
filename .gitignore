@@ -1,11 +1,6 @@
+.github/
 .idea/
-.mvn/
-out/
-*/build/
-*/out/
-.vscode
-**/bin
 logs/
 target/
+tmp/
 RUNNING_PID
-.DS_STORE
