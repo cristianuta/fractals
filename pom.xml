@@ -15,7 +15,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <javafx.version>23.0.2</javafx.version>
-        <PORT>9090</PORT>
+        <PORT>8080</PORT>
     </properties>
 
     <name>Hello JPro!</name>
