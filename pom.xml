@@ -10,15 +10,14 @@
     <properties>
         <jpro.version>2025.1.0</jpro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <javafx.version>23.0.2</javafx.version>
-        <PORT>8080</PORT>
     </properties>
 
-    <name>Hello JPro!</name>
+    <name>Spierpinski Fractals</name>
     <url>https://www.jpro.one/</url>
 
     <build>
@@ -56,16 +55,7 @@
                 <version>${jpro.version}</version>
                 <configuration>
                     <mainClassName>com.fractals.sierpinski.SierpinskiMain</mainClassName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>3.0.7</version>
-                <configuration>
-                    <appName>fractal</appName>
-                    <jdkVersion>21</jdkVersion>
-                    <logProgress>true</logProgress>
+                    <port>80</port>
                 </configuration>
             </plugin>
         </plugins>
