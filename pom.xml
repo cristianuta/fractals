@@ -55,7 +55,7 @@
                 <version>${jpro.version}</version>
                 <configuration>
                     <mainClassName>com.fractals.sierpinski.SierpinskiMain</mainClassName>
-                    <port>80</port>
+                    <port>9091</port>
                 </configuration>
             </plugin>
         </plugins>
