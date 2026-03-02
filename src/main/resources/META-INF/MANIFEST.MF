@@ -1,2 +1,2 @@
-Main-Class: com.fractals.sierpinski.SierpinskiMain
+Main-Class: com.fractals.FractalsMain
 Class-Path: ./java/*

@@ -1,6 +1,5 @@
-package com.fractals.sierpinski;
+package com.fractals;
 
-import com.fractals.sierpinski.controller.SierpinskiFXMLController;
 import com.jpro.webapi.JProApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,23 +11,23 @@ import java.io.IOException;
 /**
  * Author: Cristian Uță
  */
-public class SierpinskiMain extends JProApplication {
+public class FractalsMain extends JProApplication {
 
     @Override
     public void start(Stage stage) {
         // load user interface as FXML file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fractals/fxml/Sierpinski.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fractals/fxml/FractalsPage.fxml"));
         Scene scene = null;
         try {
             Parent root = loader.load();
-            SierpinskiFXMLController controller = loader.getController();
-            
+            ControllerMain controller = loader.getController();
+
             // Create scene with explicit dimensions
             scene = new Scene(root, 800, 600);
-            
+
             // Initialize controller after scene is created
             controller.init(this);
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,13 +38,5 @@ public class SierpinskiMain extends JProApplication {
         // open JavaFX window
         stage.show();
     }
-
-    /**
-     * Application entry point.
-     *
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
+

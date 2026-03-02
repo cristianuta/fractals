@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,7 +17,7 @@
         <javafx.version>23.0.2</javafx.version>
     </properties>
 
-    <name>Spierpinski Fractals</name>
+    <name>Fractals</name>
     <url>https://www.jpro.one/</url>
 
     <build>
@@ -36,7 +36,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.fractals.sierpinski.SierpinskiMain</mainClass>
+                            <mainClass>com.fractals.FractalsMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -46,7 +46,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.fractals.sierpinski.SierpinskiMain</mainClass>
+                    <mainClass>com.fractals.FractalsMain</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -54,7 +54,7 @@
                 <artifactId>jpro-maven-plugin</artifactId>
                 <version>${jpro.version}</version>
                 <configuration>
-                    <mainClassName>com.fractals.sierpinski.SierpinskiMain</mainClassName>
+                    <mainClassName>com.fractals.FractalsMain</mainClassName>
                     <port>9091</port>
                 </configuration>
             </plugin>
