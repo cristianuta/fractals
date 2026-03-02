@@ -10,11 +10,11 @@ import java.util.List;
 
 public class Triangle {
 
-    private static Triangle instance;
     @FXML
     protected Polygon triangle;
 
-    ;
+    private static Triangle instance;
+
     private List<Shape> fullTriangle = new ArrayList<>();
 
     private Triangle() {

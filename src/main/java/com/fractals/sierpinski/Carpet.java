@@ -10,11 +10,11 @@ import java.util.List;
 
 public class Carpet {
 
-    private static Carpet instance;
     @FXML
     protected Rectangle carpet;
 
-    ;
+    private static Carpet instance;
+
     private List<Shape> fullCarpet = new ArrayList<>();
 
     private Carpet() {
