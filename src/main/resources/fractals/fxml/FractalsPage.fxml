@@ -1,13 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<StackPane
-        xmlns:fx="http://javafx.com/fxml"
-        stylesheets="@../css/Fractals.css"
-        fx:id="root"
-        fx:controller="com.fractals.ControllerMain">
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:id="root"
+            styleClass="app-root"
+            stylesheets="@../css/Fractals.css"
+            fx:controller="com.fractals.frontend.ControllerMain">
 
-    <Button fx:id="button" StackPane.alignment="TOP_CENTER" onAction="#buttonClicked"/>
+    <top>
+        <VBox>
+            <MenuBar fx:id="menuBar">
+                <Menu text="Fractals">
+                    <MenuItem text="Home" onAction="#showHome"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit session" onAction="#exit"/>
+                </Menu>
+                <Menu text="Lindenmayer">
+                    <MenuItem text="L-System" onAction="#showLindenmayer"/>
+                </Menu>
+                <Menu text="Mandelbrot">
+                    <MenuItem text="Mandelbrot &amp; Julia" onAction="#showMandelbrot"/>
+                </Menu>
+                <Menu text="Sierpinski">
+                    <MenuItem text="Cube (Menger sponge)" onAction="#showCube"/>
+                    <MenuItem text="Carpet" onAction="#showCarpet"/>
+                    <MenuItem text="Pyramid" onAction="#showPyramid"/>
+                    <MenuItem text="Triangle" onAction="#showTriangle"/>
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="About" onAction="#showAbout"/>
+                </Menu>
+            </MenuBar>
+            <HBox styleClass="header">
+                <Label fx:id="title" styleClass="header-title" text="Fractals"/>
+            </HBox>
+        </VBox>
+    </top>
 
-</StackPane>
+    <center>
+        <StackPane fx:id="content" styleClass="content"/>
+    </center>
+
+</BorderPane>

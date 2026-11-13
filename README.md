@@ -1,12 +1,24 @@
-# HelloJPro-Maven
+# Fractals
 
-![CI Build](https://github.com/JPro-one/HelloJPro-Maven/actions/workflows/main.yml/badge.svg)
+A JPro application (JavaFX in the browser) with a menu that draws fractals:
 
-This project, is a hello-world for [jpro, which enables javafx in the web.](https://www.jpro.one/)
+- **Lindenmayer** – L-systems (Koch, dragon, Hilbert, Gosper, plants…) with editable axiom, rules and angle
+- **Mandelbrot & Julia** – zoom/pan the Mandelbrot set, click a point to see its Julia set
+- **Sierpinski** – cube (Menger sponge, 3D), carpet, pyramid (tetrahedron, 3D) and triangle
 
-[Here you can see this program running.](https://demos.jpro.one/helloworld.html)
+## Architecture
 
-More about JPro: Website: [jpro.one](https://www.jpro.one/) - Twitter: [@jpro_one](https://twitter.com/jpro_one)
+| Package | Role |
+|---|---|
+| `com.fractals.backend` | Pure Java computations, no JavaFX: L-system rewriting + turtle, escape-time rendering, Sierpinski geometry, a z-buffer software renderer for the 3D fractals |
+| `com.fractals.frontend` | JavaFX screens (menu in `FractalsPage.fxml`, one view per fractal). JPro streams them to the browser |
+| `com.fractals.FractalsMain` | Entry point (`JProApplication`) |
+
+Heavy computations run on background threads and are coalesced, so the UI stays responsive.
+A screen can be opened directly: `http://localhost:9091/index.html?fractal=mandelbrot`
+(`lindenmayer`, `mandelbrot`, `cube`, `carpet`, `pyramid`, `triangle`).
+
+Tests: `mvn test`
 
 # How to start #
 
@@ -26,15 +38,15 @@ mvn jpro:restart
 
 ### Open jpro app in Web Browser ###
 
-> http://localhost:8080/index.html
+> http://localhost:9091/index.html
 
 ### Show all jpro apps in Browser ####
 
-> http://localhost:8080/test/default
+> http://localhost:9091/test/default
 
 ### Open jpro app in fullscreen ####
 
-> http://localhost:8080/test/fullscreen/app-name
+> http://localhost:9091/test/fullscreen/app-name
 
 # Deployment:
 

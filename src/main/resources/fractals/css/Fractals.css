@@ -1,31 +1,191 @@
+/* Dark theme for the Fractals application */
+
 .root {
-    -fx-background-color: white;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-base: #232836;
+    -fx-background: #161a23;
+    -fx-control-inner-background: #1d2230;
+    -fx-accent: #4c8dff;
+    -fx-focus-color: #4c8dff;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #e6e9f0;
+}
+
+.app-root {
+    -fx-background-color: #161a23;
+}
+
+/* ---------- menu ---------- */
+.menu-bar {
+    -fx-background-color: #0f121a;
+    -fx-padding: 2 8 2 8;
+    -fx-border-color: transparent transparent #2a3040 transparent;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #d7dbe6;
+}
+
+.menu-item .label {
+    -fx-text-fill: #e6e9f0;
+}
+
+.context-menu {
+    -fx-background-color: #1d2230;
+    -fx-border-color: #2f3648;
+}
+
+.menu-item:focused {
+    -fx-background-color: #4c8dff;
+}
+
+.header {
+    -fx-padding: 10 18 10 18;
+    -fx-background-color: linear-gradient(to right, #1c2333, #161a23);
+    -fx-border-color: transparent transparent #2a3040 transparent;
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* ---------- home ---------- */
+.home-page {
+    -fx-background-color: radial-gradient(center 50% 0%, radius 90%, #22304d, #161a23);
+    -fx-padding: 30;
+}
+
+.home-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.home-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #a9b1c6;
+    -fx-text-alignment: center;
+}
+
+.card {
+    -fx-background-color: #1f2534;
+    -fx-background-radius: 12;
+    -fx-border-color: #2f3850;
+    -fx-border-radius: 12;
+    -fx-padding: 14;
+    -fx-alignment: top-left;
+    -fx-cursor: hand;
+}
+
+.card:hover {
+    -fx-background-color: #263049;
+    -fx-border-color: #4c8dff;
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8fb8ff;
+}
+
+.card-text {
+    -fx-text-fill: #c3c9d8;
+}
+
+.about {
+    -fx-background-color: #1f2534;
+    -fx-background-radius: 12;
+    -fx-padding: 24;
+}
+
+.about-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #d7dbe6;
+}
+
+/* ---------- fractal screens ---------- */
+.content {
+    -fx-background-color: #11141c;
+}
+
+.control-scroll, .control-scroll > .viewport {
+    -fx-background-color: #1a1f2b;
+}
+
+.control-scroll {
+    -fx-border-color: transparent transparent transparent #2a3040;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.field-label {
+    -fx-text-fill: #a9b1c6;
+}
+
+.value-label {
+    -fx-text-fill: #8fb8ff;
+    -fx-font-weight: bold;
+}
+
+.hint {
+    -fx-text-fill: #8a93a8;
+    -fx-font-size: 12px;
 }
 
 .label {
-    -fx-font-size: 16px;
+    -fx-text-fill: #e6e9f0;
 }
 
-.button{
-    -fx-background-color: #4CAF50;
+.button {
+    -fx-background-radius: 6;
+}
+
+.button.accent {
+    -fx-background-color: #4c8dff;
     -fx-text-fill: white;
-    -fx-padding: 10px 20px;
-    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 
-.hello-label {
-    -fx-translate-y: -80px;
-    -fx-text-fill: #999;
-    -fx-font-size: 32px;
+.button.accent:hover {
+    -fx-background-color: #6aa1ff;
 }
 
-.platform-label {
-    -fx-translate-y: -10px;
-    -fx-text-fill: #BBB;
-    -fx-font-size: 14px;
+.text-area .content {
+    -fx-background-color: #1d2230;
 }
 
-.progress-indicator {
-    -fx-max-width: 32px;
-    -fx-max-height: 32px;
+.text-area, .text-field {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+}
+
+.split-images {
+    -fx-background-color: #0b0d13;
+}
+
+.overlay-title {
+    -fx-background-color: rgba(0, 0, 0, 0.55);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 0 0 8 0;
+}
+
+.overlay-info {
+    -fx-background-color: rgba(0, 0, 0, 0.55);
+    -fx-text-fill: #d7dbe6;
+    -fx-font-size: 11px;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 0 8 0 0;
+}
+
+.image-pane, .canvas-pane {
+    -fx-background-color: #11141c;
+    -fx-cursor: crosshair;
 }
