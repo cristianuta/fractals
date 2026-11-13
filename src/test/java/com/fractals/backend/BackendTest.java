@@ -89,6 +89,29 @@ class BackendTest {
         }
     }
 
+    @Test
+    void plantsBranchAndClosedFiguresClose() {
+        for (LSystemPreset preset : LSystemPreset.values()) {
+            if (preset.category() == LSystemPreset.Category.PLANT) {
+                assertTrue(Lindenmayer.of(preset).draw(preset.iterations()).maxDepth() > 0, preset.title());
+            }
+        }
+        // the Hilbert and Peano curves fill a square grid: (2^n - 1)² and (3^n - 1)² bounding boxes
+        TurtlePath hilbert = Lindenmayer.of(LSystemPreset.HILBERT).draw(4);
+        assertEquals(15, hilbert.maxX() - hilbert.minX(), 1e-6);
+        assertEquals(15, hilbert.maxY() - hilbert.minY(), 1e-6);
+        TurtlePath peano = Lindenmayer.of(LSystemPreset.PEANO).draw(2);
+        assertEquals(8, peano.maxX() - peano.minX(), 1e-6);
+        assertEquals(8, peano.maxY() - peano.minY(), 1e-6);
+        // the Koch island and the Moore curve are closed: they end where they start
+        for (LSystemPreset closed : new LSystemPreset[]{LSystemPreset.KOCH_ISLAND, LSystemPreset.MOORE}) {
+            TurtlePath path = Lindenmayer.of(closed).draw(2);
+            int last = path.size() - 1;
+            double gap = Math.hypot(path.x2(last) - path.x1(0), path.y2(last) - path.y1(0));
+            assertEquals(closed == LSystemPreset.MOORE ? 1 : 0, gap, 1e-6, closed.title());
+        }
+    }
+
     // ---------- Mandelbrot & Julia ----------
 
     @Test

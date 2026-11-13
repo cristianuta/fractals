@@ -111,6 +111,7 @@ final class LindenmayerView implements FractalView {
         rules.setText(preset.rules());
         angle.setText(format(preset.angle()));
         heading.setText(format(preset.heading()));
+        coloring.setValue(preset.category() == LSystemPreset.Category.PLANT ? Coloring.DEPTH : Coloring.GRADIENT);
         iterations = preset.iterations();
         iterationsSlider[0].setValue(iterations);
         compute();

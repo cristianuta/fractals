@@ -5,7 +5,7 @@ package com.fractals.backend.mandelbrot;
  */
 public final class Mandelbrot implements EscapeTimeFractal {
 
-    public static final Viewport DEFAULT_VIEW = new Viewport(-0.6, 0, 2.6);
+    public static final Viewport DEFAULT_VIEW = new Viewport(-0.45, 0, 2.6); // shifted left: the Julia window covers the top-right corner
 
     @Override
     public double iterate(double cr, double ci, int maxIterations) {

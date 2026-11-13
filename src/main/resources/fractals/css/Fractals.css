@@ -165,7 +165,9 @@
     -fx-font-family: "Consolas", "Courier New", monospace;
 }
 
-.split-images {
+.julia-window {
+    -fx-border-color: rgba(255, 255, 255, 0.85);
+    -fx-border-width: 2;
     -fx-background-color: #0b0d13;
 }
 

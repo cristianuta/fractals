@@ -2,8 +2,8 @@
 
 A JPro application (JavaFX in the browser) with a menu that draws fractals:
 
-- **Lindenmayer** – L-systems (Koch, dragon, Hilbert, Gosper, plants…) with editable axiom, rules and angle
-- **Mandelbrot & Julia** – zoom/pan the Mandelbrot set, click a point to see its Julia set
+- **Lindenmayer** – 29 L-systems (curves, islands/tilings incl. Penrose, plants) with editable axiom, rules and angle
+- **Mandelbrot & Julia** – zoom/pan the Mandelbrot set, click a point to see its Julia set in a window over the top-right corner
 - **Sierpinski** – cube (Menger sponge, 3D), carpet, pyramid (tetrahedron, 3D) and triangle
 
 ## Architecture

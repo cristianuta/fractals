@@ -6,6 +6,7 @@ import com.fractals.backend.mandelbrot.Mandelbrot;
 import com.fractals.backend.mandelbrot.Palette;
 import com.fractals.backend.mandelbrot.Viewport;
 import com.fractals.backend.mandelbrot.julia.Julia;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -15,11 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -51,8 +49,13 @@ final class MandelbrotJuliaView implements FractalView {
     private final ComboBox<Palette> palette = new ComboBox<>();
     private final ComboBox<Julia.Preset> juliaPresets = new ComboBox<>();
     private final CheckBox liveJulia = new CheckBox("Update Julia while hovering");
+    private final CheckBox showJulia = new CheckBox("Show the Julia window");
     private final AsyncRender<Frame> mandelRenderer;
     private final AsyncRender<Frame> juliaRenderer;
+
+    /** Fixed size of the Julia window, as fractions of the Mandelbrot area. */
+    private static final double JULIA_WIDTH = 0.375;
+    private static final double JULIA_HEIGHT = 0.5;
 
     private Viewport mandelView = Mandelbrot.DEFAULT_VIEW;
     private Viewport juliaView = Julia.DEFAULT_VIEW;
@@ -92,20 +95,29 @@ final class MandelbrotJuliaView implements FractalView {
         mandelPane.onResize(this::renderMandelbrot);
         juliaPane.onResize(this::renderJulia);
 
-        GridPane images = new GridPane();
-        images.getStyleClass().add("split-images");
-        images.setHgap(6);
-        for (int i = 0; i < 2; i++) {
-            ColumnConstraints column = new ColumnConstraints();
-            column.setPercentWidth(50);
-            column.setHgrow(Priority.ALWAYS);
-            images.getColumnConstraints().add(column);
-        }
-        RowConstraints row = new RowConstraints();
-        row.setVgrow(Priority.ALWAYS);
-        images.getRowConstraints().add(row);
-        images.add(titled(mandelPane, "Mandelbrot", mandelInfo), 0, 0);
-        images.add(titled(juliaPane, "Julia", juliaInfo), 1, 0);
+        // Mandelbrot fills the area; the Julia set floats over its top-right corner
+        StackPane juliaWindow = titled(juliaPane, "Julia", juliaInfo);
+        juliaWindow.getStyleClass().add("julia-window");
+        StackPane.setAlignment(juliaWindow, Pos.TOP_RIGHT);
+        StackPane.setMargin(juliaWindow, new Insets(12));
+        StackPane images = new StackPane(titled(mandelPane, "Mandelbrot", mandelInfo), juliaWindow);
+        images.setMinSize(0, 0);
+        Runnable layoutJulia = () -> {
+            // fixed rectangle in the top-right corner: 37.5 % of the width, half of the height
+            double height = Math.max(120, images.getHeight() * JULIA_HEIGHT - 12);
+            double width = Math.max(160, images.getWidth() * JULIA_WIDTH);
+            juliaWindow.setPrefSize(width, height);
+            juliaWindow.setMaxSize(width, height);
+        };
+        images.widthProperty().addListener((o, a, b) -> layoutJulia.run());
+        images.heightProperty().addListener((o, a, b) -> layoutJulia.run());
+        showJulia.setSelected(true);
+        juliaWindow.visibleProperty().bind(showJulia.selectedProperty());
+        showJulia.setOnAction(e -> {
+            if (showJulia.isSelected()) {
+                renderJulia();
+            }
+        });
         root.setCenter(images);
 
         palette.getItems().setAll(Palette.values());
@@ -152,9 +164,11 @@ final class MandelbrotJuliaView implements FractalView {
                 Ui.field("c = re + im·i", cBox),
                 applyC,
                 liveJulia,
+                showJulia,
                 reset,
-                Ui.hint("Scroll to zoom, drag to move. Click a point of the Mandelbrot set to see its Julia set: "
-                        + "points inside the black area give connected Julia sets, points outside give \"dust\".")));
+                Ui.hint("Scroll to zoom, drag to move – in both sets. Click a point of the Mandelbrot set to see "
+                        + "its Julia set in the top-right window: points inside the black area give connected "
+                        + "Julia sets, points outside give \"dust\".")));
         updateCFields();
     }
 
@@ -239,8 +253,10 @@ final class MandelbrotJuliaView implements FractalView {
     }
 
     private void renderJulia() {
-        juliaInfo.setText(String.format(Locale.ROOT, "c = %.5f %+.5fi   ·   %s", julia.cr(), julia.ci(), describe(juliaView)));
-        render(juliaPane, juliaRenderer, julia, juliaView);
+        juliaInfo.setText(String.format(Locale.ROOT, "c = %.4f %+.4fi · %s", julia.cr(), julia.ci(), describe(juliaView)));
+        if (showJulia.isSelected()) {
+            render(juliaPane, juliaRenderer, julia, juliaView);
+        }
     }
 
     private static String describe(Viewport v) {
